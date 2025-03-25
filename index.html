@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Formularz Dresscode</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            text-align: center;
+            padding: 30px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-transform: uppercase;
+        }
+        input {
+            padding: 10px;
+            margin: 10px 0;
+            width: 300px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            text-transform: uppercase;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        label {
+            display: block;
+            font-size: 18px;
+            margin-top: 10px;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>FORMULARZ DRESSCODE</h1>
+        <form id="dressCodeForm">
+            <label for="imie">IMIĘ:</label>
+            <input type="text" id="imie" name="imie" required>
+            
+            <label for="nazwisko">NAZWISKO:</label>
+            <input type="text" id="nazwisko" name="nazwisko" required>
+            
+            <button type="button" onclick="otworzStrone()">WYLOSUJ DRESSCODE</button>
+        </form>
+    </div>
+
+    <script>
+        function otworzStrone() {
+            const imie = document.getElementById('imie').value;
+            const nazwisko = document.getElementById('nazwisko').value;
+            
+            if (imie && nazwisko) {
+                const url = `https://script.google.com/macros/s/AKfycbwe7HJxvOOa79SeohnScKuwvePF2BRq0BUNv1XTc1_rf5NjoGyVFl4YLZjx16NRQSNHiw/exec?imie=${encodeURIComponent(imie)}&nazwisko=${encodeURIComponent(nazwisko)}`;
+                window.location.href = url;
+            } else {
+                alert('Proszę wypełnić wszystkie pola!');
+            }
+        }
+    </script>
+</body>
+</html>
